@@ -1,0 +1,10 @@
+{application,greenseer,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{greenseer_app,[]}},
+              {env,[]},
+              {modules,[greenseer_app,greenseer_receiver,greenseer_sup,
+                        greenseer_websocket_server,rsyslog_parser,
+                        websocket_handler]}]}.
