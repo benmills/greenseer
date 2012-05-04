@@ -1,10 +1,11 @@
 {application,greenseer,
              [{description,[]},
               {vsn,"1"},
-              {registered,[]},
-              {applications,[kernel,stdlib]},
-              {mod,{greenseer_app,[]}},
-              {env,[]},
               {modules,[greenseer_app,greenseer_receiver,greenseer_sup,
                         greenseer_websocket_server,rsyslog_parser,
-                        websocket_handler]}]}.
+                        websocket_handler]},
+              {registered,[greenseer_sup]},
+              {applications,[kernel,stdlib,crypto,public_key,ssl,gproc,
+                             cowboy]},
+              {mod,{greenseer_app,[]}},
+              {env,[]}]}.

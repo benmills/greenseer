@@ -10,6 +10,8 @@
 %% ===================================================================
 
 start() ->
+  application:start(gproc),
+  application:start(cowboy),
   application:start(greenseer).
 
 % %% Use a static list of content types.

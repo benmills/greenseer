@@ -1,0 +1,12 @@
+.erlang
+rel/jane/*
+.eunit
+deps
+priv
+*.o
+ebin
+*.beam
+*.plt
+test.config
+*.dump
+tags

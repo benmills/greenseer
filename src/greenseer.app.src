@@ -2,10 +2,19 @@
  [
   {description, ""},
   {vsn, "1"},
-  {registered, []},
+  {modules, [
+    greenseer_app,
+    greenseer_sup
+      ]},
+  {registered, [greenseer_sup]},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  crypto,
+                  public_key,
+                  ssl,
+                  gproc,
+                  cowboy
                  ]},
   {mod, { greenseer_app, []}},
   {env, []}

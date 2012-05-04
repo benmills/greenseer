@@ -4,8 +4,6 @@
 
 start() ->
   io:fwrite(">>> starting cowboys"),
-  application:start(gproc),
-  application:start(cowboy),
 
   Dispatch = [{'_', [
     {[<<"static">>, '...'], cowboy_http_static,
