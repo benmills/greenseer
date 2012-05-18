@@ -29,7 +29,6 @@ handle_info(_, State) ->
   {noreply, State}.
 
 handle(Req, State) ->
-  io:fwrite(">> ws:handle"),
   {ok, Req2} = cowboy_http_req:reply(200, [{'Content-Type', <<"text/html">>}], <<"OK">>, Req),
   {ok, Req2, State}.
 
@@ -41,13 +40,11 @@ terminate(_Req, _State) ->
 %% ===================================================================
 
 websocket_init(_Any, Req, []) ->
-  io:fwrite(">> ws:init"),
   gproc:reg({p, l,{?MODULE, braintree}}),
   Res = cowboy_http_req:compact(Req),
   {ok, Res, undefined, hibernate}.
 
 websocket_handle(_Any, Req, State) ->
-  io:fwrite(">> ws:ws_handle"),
   {ok, Req, State}.
 
 websocket_info({_Pid, {_Module, braintree}, Msg}, Req, State) ->

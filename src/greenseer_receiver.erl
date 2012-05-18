@@ -13,7 +13,6 @@ start_link() ->
   gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 register_client(Client) ->
-  io:fwrite("REGISETER"),
   gen_server:call(?MODULE, {register, Client}).
 
 %% ===================================================================
@@ -33,8 +32,9 @@ handle_cast(Msg, State) ->
   {noreply, State}.
 
 handle_info({udp, _Port, _Host, _, Msg}, State) ->
-  Log = rsyslog_parser:syslog_to_json(Msg),
-  websocket_handler:broadcast(Log),
+  io:fwrite("[syslog] ~p~n", [Msg]),
+  %% Log = rsyslog_parser:syslog_to_json(Msg),
+  %% websocket_handler:broadcast(Log),
   {noreply, State};
 handle_info(Msg, State) ->
   {noreply, State}.

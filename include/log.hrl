@@ -1,0 +1,1 @@
+-record(log, {priority, timestamp, host, programname, message}).
